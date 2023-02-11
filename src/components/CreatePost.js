@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
+import {db} from '../firebase'
+import {collection, addDoc, Timestamp} from 'firebase/firestore'
 
 function CreatePost() {
 
@@ -6,9 +9,19 @@ function CreatePost() {
   const [subTitle, setSubTitle] = useState();
   const [content, setContent] = useState();
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('title', title);
+    try {
+      await addDoc(collection(db, 'posts'), {
+        title,
+        subTitle,
+        content,
+        createdAt: Timestamp.now()
+      })
+      
+    } catch (err) {
+      alert(err)
+    }
   }
 
   return (
