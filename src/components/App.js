@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route index element={ <Home/>}/>
           <Route path="/create-post" element={ <CreatePost/>}/>
-          <Route path="/post-details" element={ <PostDetails/>}/>
+          <Route path="/post/:postId" element={ <PostDetails/>}/>
         </Routes>
       </div>
     </BrowserRouter>
