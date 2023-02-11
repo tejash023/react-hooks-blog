@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes , Route} from "react-router-dom";
 
-import { Navbar, Home, CreatePost } from './';
+import { Navbar, Home, CreatePost, PostDetails } from './';
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
         <Routes>
           <Route index element={ <Home/>}/>
           <Route path="/create-post" element={ <CreatePost/>}/>
+          <Route path="/post-details" element={ <PostDetails/>}/>
         </Routes>
       </div>
     </BrowserRouter>
