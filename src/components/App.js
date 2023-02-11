@@ -1,8 +1,16 @@
-
+import {Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <h1>Blogs</h1>
+    <div className='container'>
+
+      <Switch>
+        <Route exact path ='/' component = {Home} />
+        <Route exact path ='/post/:postID' component = {PostDetail} />
+        <Route exact path ='/create-post' component = {CreatePost} />
+      </Switch>
+
+    </div>>
   );
 }
 
