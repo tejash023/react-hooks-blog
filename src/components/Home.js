@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {db} from '../firebase';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, onSnapshot } from "firebase/firestore";
 import {Link} from 'react-router-dom';
 
 
@@ -10,17 +10,19 @@ export default function Home() {
 
   useEffect(() => {
     const colRef = collection(db, 'posts');
-    getDocs(colRef)
-      .then((snapshot)=>{
-        const posts = snapshot.docs.map((doc) => {
-          return {
-            id: doc.id,
-            ...doc.data(),
-          }
-        });
-        
-        setPosts(posts);
-      })
+    const q = query(colRef, orderBy('createdAt','desc'));
+
+    onSnapshot(q, (snapshot) => {
+      const posts = snapshot.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        }
+      });
+      
+      setPosts(posts);
+    })
+    
   }, []); 
 
   return (
