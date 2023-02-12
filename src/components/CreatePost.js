@@ -1,6 +1,6 @@
 
 import {db} from '../firebase'
-import {collection, addDoc, Timestamp} from 'firebase/firestore';
+import {collection, addDoc, Timestamp, serverTimestamp} from 'firebase/firestore';
 import {useFormInput} from '../hooks';
 
 
@@ -18,7 +18,7 @@ function CreatePost() {
         title:title.value,
         subTitle:subTitle.value,
         content:content.value,
-        createdAt: Timestamp.now()
+        createdAt: serverTimestamp()
       })
       
     } catch (err) {
