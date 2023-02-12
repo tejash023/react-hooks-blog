@@ -1,7 +1,5 @@
 # Blog application with React Router and React Hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 [Hosted URL](https://react-hooks-blog-app-e35c4.web.app/)
 
 In the project directory, you can run:
@@ -27,12 +25,12 @@ The build is minified and the filenames include the hashes.\
 This app is deployed on firebase
 
 Setting up Firebase Hosting
- * Install firebase CLI `npm install -g firebase-tools`
+ * Install firebase CLI  `npm install -g firebase-tools`
 
 Initialize your project
- * Firebase login `firebase login`
- * Initiate project `Initiate your project`
+ * Firebase login  `firebase login`
+ * Initiate project  `Initiate your project`
 
 Deploy to Firebase Hosting
- * Deploy `firebase deploy`
+ * Deploy  `firebase deploy`
 
