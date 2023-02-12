@@ -8,10 +8,15 @@ export default function Home() {
   
   const [posts, setPosts] = useState([]);
 
+  //displaying posts in page reload - use effect hook
   useEffect(() => {
+    //getting collection reference
     const colRef = collection(db, 'posts');
+
+    //queries
     const q = query(colRef, orderBy('createdAt','desc'));
 
+    // real time collection data
     onSnapshot(q, (snapshot) => {
       const posts = snapshot.docs.map((doc) => {
         return {
@@ -20,6 +25,7 @@ export default function Home() {
         }
       });
       
+      // setting the posts in state
       setPosts(posts);
     })
     
